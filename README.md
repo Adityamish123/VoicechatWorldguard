@@ -15,7 +15,7 @@ This small plugin provides WorldGuard region flags to control Simple Voice Chat 
 - Per-region control of voice chat behaviour for players inside WorldGuard regions.
 - Simple, focused set of flags:
     - voicechat-enabled — enable/disable voice in the region (boolean)
-    - voicechat-distance — set voice range in blocks (integer)
+    - voicechat-distance — set voice range in blocks (integer) (Voicechat 2.6.0+ required)
     - voicechat-muted — mute voice in the region (boolean)
 
 (Flags and names may be extended or changed in future versions — check the plugin's documentation or changelog.)

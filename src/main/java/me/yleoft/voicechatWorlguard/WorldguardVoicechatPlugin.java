@@ -10,14 +10,15 @@ import de.maxhenkel.voicechat.api.VoicechatApi;
 import de.maxhenkel.voicechat.api.VoicechatPlugin;
 import de.maxhenkel.voicechat.api.events.EventRegistration;
 import de.maxhenkel.voicechat.api.events.MicrophonePacketEvent;
+import de.maxhenkel.voicechat.api.events.EntitySoundPacketEvent;
+import de.maxhenkel.voicechat.api.events.VoiceDistanceEvent;
 import org.bukkit.entity.Player;
-import org.bukkit.permissions.Permission;
-import org.bukkit.permissions.PermissionDefault;
 
 public class WorldguardVoicechatPlugin implements VoicechatPlugin {
 
     public static final String id = "voicechat_worldguard";
-    public static Permission bypass_permission = new Permission("voicechatworlguard.bypass", PermissionDefault.OP);
+    public static final String vcEnabledBypassPermission = "voicechatworlguard.bypass.voicechat-enabled";
+    public static final String vcMutedBypassPermission = "voicechatworlguard.bypass.voicechat-muted";
 
     @Override
     public String getPluginId() {
@@ -32,20 +33,25 @@ public class WorldguardVoicechatPlugin implements VoicechatPlugin {
     @Override
     public void registerEvents(EventRegistration registration) {
         registration.registerEvent(MicrophonePacketEvent.class, this::onMicrophone);
+        registration.registerEvent(EntitySoundPacketEvent.class, this::onListen);
+        try {
+            Class.forName("de.maxhenkel.voicechat.api.events.VoiceDistanceEvent");
+            registration.registerEvent(VoiceDistanceEvent.class, this::onProcessDistance);
+        } catch (ClassNotFoundException ignored) {
+        }
     }
 
     private void onMicrophone(MicrophonePacketEvent event) {
         if(
                 event.getSenderConnection() == null ||
                 !(event.getSenderConnection().getPlayer().getPlayer() instanceof Player player) ||
-                player.hasPermission(bypass_permission)
+                player.hasPermission(vcEnabledBypassPermission)
         ) {
             return;
         }
 
         try {
-            LocalPlayer localPlayer = WorldGuardPlugin.inst().wrapPlayer(player);
-
+            LocalPlayer localPlayer = getLocalPlayer(player);
             boolean canBypass = WorldGuard.getInstance().getPlatform().getSessionManager().hasBypass(localPlayer, localPlayer.getWorld());
             if (canBypass) return;
 
@@ -53,12 +59,63 @@ public class WorldguardVoicechatPlugin implements VoicechatPlugin {
             RegionQuery query = container.createQuery();
             ApplicableRegionSet set = query.getApplicableRegions(localPlayer.getLocation());
 
-            if(!set.testState(localPlayer, VoicechatWorlguard.wgFlag)) {
+            if(!set.testState(localPlayer, VoicechatWorlguard.vcEnabledFlag)) {
                 event.cancel();
             };
         }catch (Exception e) {
             VoicechatWorlguard.getInstance().getLogger().severe("Error checking WorldGuard regions for voicechat:");
         }
+    }
+    private void onProcessDistance(VoiceDistanceEvent event) {
+        if(
+                event.getSenderConnection() == null ||
+                !(event.getSenderConnection().getPlayer().getPlayer() instanceof Player player)
+        ) {
+            return;
+        }
+
+        try {
+            LocalPlayer localPlayer = getLocalPlayer(player);
+            boolean canBypass = WorldGuard.getInstance().getPlatform().getSessionManager().hasBypass(localPlayer, localPlayer.getWorld());
+            if (canBypass) return;
+
+            RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
+            RegionQuery query = container.createQuery();
+            ApplicableRegionSet set = query.getApplicableRegions(localPlayer.getLocation());
+
+            event.setDistance(set.queryValue(localPlayer, VoicechatWorlguard.vcDistanceFlag));
+        }catch (Exception e) {
+            VoicechatWorlguard.getInstance().getLogger().severe("Error checking WorldGuard regions for voicechat:");
+        }
+    }
+    private void onListen(EntitySoundPacketEvent event) {
+        if(
+                event.getReceiverConnection() == null ||
+                !(event.getReceiverConnection().getPlayer().getPlayer() instanceof Player player) ||
+                player.hasPermission(vcMutedBypassPermission)
+        ) {
+            return;
+        }
+
+        try {
+            LocalPlayer localPlayer = getLocalPlayer(player);
+            boolean canBypass = WorldGuard.getInstance().getPlatform().getSessionManager().hasBypass(localPlayer, localPlayer.getWorld());
+            if (canBypass) return;
+
+            RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
+            RegionQuery query = container.createQuery();
+            ApplicableRegionSet set = query.getApplicableRegions(localPlayer.getLocation());
+
+            if(set.testState(localPlayer, VoicechatWorlguard.vcMutedFlag)) {
+                event.cancel();
+            };
+        }catch (Exception e) {
+            VoicechatWorlguard.getInstance().getLogger().severe("Error checking WorldGuard regions for voicechat:");
+        }
+    }
+
+    public LocalPlayer getLocalPlayer(Player player) {
+        return WorldGuardPlugin.inst().wrapPlayer(player);
     }
 
 }

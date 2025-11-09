@@ -1,4 +1,4 @@
-name: VoicechatWorlguard
+name: VoicechatWorldguard
 version: ${version}
 main: me.yleoft.voicechatWorlguard.VoicechatWorlguard
 api-version: '1.13'
@@ -7,5 +7,15 @@ author: yLeoft
 depend: [ voicechat, WorldGuard ]
 
 permissions:
-  voicechatworlguard.bypass:
-    description: Allows to bypass worldguard voicechat protection
+  voicechatworlguard.bypass.*:
+    description: Allows to bypass all worldguard voicechat restrictions
+    children:
+      voicechatworlguard.bypass.voicechat-enabled: true
+      voicechatworlguard.bypass.voicechat-distance: true
+      voicechatworlguard.bypass.voicechat-muted: true
+  voicechatworlguard.bypass.voicechat-enabled:
+    description: Allows to bypass worldguard voicechat enabled flag
+  voicechatworlguard.bypass.voicechat-distance:
+    description: Allows to bypass worldguard voicechat distance flag
+  voicechatworlguard.bypass.voicechat-muted:
+    description: Allows to bypass worldguard voicechat muted flag

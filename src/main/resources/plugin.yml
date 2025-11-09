@@ -1,0 +1,11 @@
+name: VoicechatWorlguard
+version: ${version}
+main: me.yleoft.voicechatWorlguard.VoicechatWorlguard
+api-version: '1.13'
+folia-supported: true
+author: yLeoft
+depend: [ voicechat, WorldGuard ]
+
+permissions:
+  voicechatworlguard.bypass:
+    description: Allows to bypass worldguard voicechat protection

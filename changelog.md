@@ -1,0 +1,1 @@
+**This is the first version of the plugin, so there is no changelog**

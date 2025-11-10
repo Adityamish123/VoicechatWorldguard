@@ -57,3 +57,7 @@ When reporting, include:
 - Server platform & version (Spigot/Paper/Folia/etc.)
 - Versions of WorldGuard and Simple Voice Chat
 - Plugin version and server logs if available
+
+<p align="center">
+  <img src="https://bstats.org/signatures/bukkit/VoicechatWorlguard.svg" alt="bStats Graph" />
+</p>

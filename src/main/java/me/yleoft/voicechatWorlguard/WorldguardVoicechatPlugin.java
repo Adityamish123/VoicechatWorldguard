@@ -83,9 +83,13 @@ public class WorldguardVoicechatPlugin implements VoicechatPlugin {
             RegionQuery query = container.createQuery();
             ApplicableRegionSet set = query.getApplicableRegions(localPlayer.getLocation());
 
-            event.setDistance(set.queryValue(localPlayer, VoicechatWorlguard.vcDistanceFlag));
-        }catch (Exception e) {
-            VoicechatWorlguard.getInstance().getLogger().severe("Error checking WorldGuard regions for voicechat:");
+            try {
+                event.setDistance(set.queryValue(localPlayer, VoicechatWorlguard.vcDistanceFlag));
+            }catch (Exception ignored) {
+            }
+        }
+        catch (Exception e) {
+            VoicechatWorlguard.getInstance().getLogger().severe("Error checking WorldGuard regions for voicechat.");
         }
     }
     private void onListen(EntitySoundPacketEvent event) {

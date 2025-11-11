@@ -67,7 +67,7 @@ jobs:
           NAME: Voicechat WorldGuard ${{ steps.get_version.outputs.version }}
           VERSION: ${{ steps.get_version.outputs.version }}
           DESCRIPTION: ${{ steps.changelog.outputs.content }}
-          GAME_VERSIONS: "1.13..latest"
+          GAME_VERSIONS: "1.8..latest"
 
           MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
           MODRINTH_PROJECT: OoKHyZcp

